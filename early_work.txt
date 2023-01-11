@@ -1,0 +1,86 @@
+for a + b = c, and c is even
+either a = b 
+or
+a xor b has to be >= c/2
+
+for a + b = c, and c is odd
+a or b is >= c/2 + 1
+
+Early warning of immenent collapse is O(1) : Track the min and max
+if max < c/2 ceiling then it is undoubtedly unsafe
+if min > c/2 floor then it is definitely unsafe
+
+
+Uncertain of immenent collapse.
+Search methods
+for i = 0, i..k,
+a0 + a(i+1) = a(k+1)
+first loop is
+k-i = k
+k-(i+1)
+k-(i+2)
+k-(i+3)
+k-(i+4) = 1
+...
+k-(i+..) = 0
+
+first loop
+0 + 1..k-1
+1 + 2..k-1
+2 + 3..k-1
+3 + 4..k-1
+k-2 + k-1
+
+
+
+In the case of k = 5
+0+1, 0+2, 0+3, 0+4 4ops
+1 + 2, 1 + 3, 1+ 4 3ops
+2 + 3, 2+ 4 2ops
+3 + 4 1op
+
+normally n(n+1)/2
+(k-1)(k)/2 -> This pattern predicts the number of ops when unsorted and using one location in memory
+
+0 : 0
+1 : 0
+2 : 1
+3 : 2
+4 : 6
+5 : 10
+6 : 15
+
+1/2(k^2 - k)
+O(k^2)
+Complexity is exponentially increasing as n increases.
+
+
+for a > c/2 and b > c/2, c is even
+if a inverse is in the set 0..m,
+then k+1 is okay and the mine does not collapse.
+
+////
+get data 0..k
+turn data into tuples (entry, insertion_order) O(n)
+sort tuples by entry, O(n*log(n)) for first m elements
+
+repeat
+binary_search for c-a in tuples, O(log(n))
+do some logic
+search for index of partition point by entry O(log(n)) --basically a binary search
+linear search loop
+	decrement insertion_order
+	if insertion_order != 0{
+		continue
+	}
+	overwrite tuple with a(k+1), k)
+linearly move (a(k+1),k) into place with swap
+
+
+//I
+
+
+
+
+
+
