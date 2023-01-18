@@ -1,10 +1,10 @@
 for a + b = c, and c is even
 either a = b 
 or
-a xor b has to be >= c/2
+a > c/2 xor b > c/2
 
 for a + b = c, and c is odd
-a or b is >= c/2 + 1
+a xor b is >= c/2 + 1
 
 Early warning of immenent collapse is O(1) : Track the min and max
 if max < c/2 ceiling then it is undoubtedly unsafe
@@ -57,27 +57,24 @@ Complexity is exponentially increasing as n increases.
 
 for a > c/2 and b > c/2, c is even
 if a inverse is in the set 0..m,
-then k+1 is okay and the mine does not collapse.
+then m+1 is okay and the mine does not collapse.
 
 ////
-get data 0..k
+get window to data 0..m
 turn data into tuples (entry, insertion_order) O(n)
-sort tuples by entry, O(n*log(n)) for first m elements
+
 
 repeat
+sort tuples by entry, O(n*log(n)) for first m elements, O(n) for subsequent loops
 binary_search for c-a in tuples, O(log(n))
 do some logic
-search for index of partition point by entry O(log(n)) --basically a binary search
-linear search loop
-	decrement insertion_order
+'_prep_for_next_iteration loop
 	if insertion_order != 0{
+		decrement insertion_order
 		continue
 	}
-	overwrite tuple with a(k+1), k)
-linearly move (a(k+1),k) into place with swap
-
-
-//I
+	overwrite tuple with (a(m+1), m-1))
+//
 
 
 

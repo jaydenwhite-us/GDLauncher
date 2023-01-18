@@ -1,4 +1,5 @@
 [workspace]
 members =[
-  "namt_preventative_collapse"
+  "namt_preventative_collapse",
+  "namt_warning_system_benchmarks"
 ]

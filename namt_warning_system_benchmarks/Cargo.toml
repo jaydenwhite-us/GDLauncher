@@ -1,9 +1,9 @@
 [package]
-name = "namt_preventative_collapse"
+name = "namt_warning_system_benchmarks"
 version = "0.1.0"
 edition = "2021"
-authors = ["jaydenwhite-us"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+namt_preventative_collapse={path="../namt_preventative_collapse"}

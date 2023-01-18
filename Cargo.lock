@@ -5,3 +5,10 @@ version = 3
 [[package]]
 name = "namt_preventative_collapse"
 version = "0.1.0"
+
+[[package]]
+name = "namt_warning_system_benchmarks"
+version = "0.1.0"
+dependencies = [
+ "namt_preventative_collapse",
+]
